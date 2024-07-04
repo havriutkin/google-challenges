@@ -32,6 +32,7 @@ Complexity:
     1. O(n^2) - worst case time complexity. It occurs when finding a closing bracket forces to go back through all stack
     2. O(n) - space complexity, using stack
 """
+from utils import utils
 
 def decompress(input:str) -> str:
     stack = []
@@ -78,8 +79,8 @@ def decompress(input:str) -> str:
         index += 1
 
     return "".join(stack)
-    
-def test():
+
+if __name__ == "__main__":
     tests = [
         ("3[ab]", "ababab"),
         ("[ab]", "ab"),
@@ -89,16 +90,4 @@ def test():
         ("2[aaabaaab]", "aaabaaabaaabaaab"),
         ("2[2[3[a]b]]", "aaabaaabaaabaaab"),
     ]
-    total = len(tests)
-
-    right_answers = 0
-    for test in tests:
-        result = decompress(test[0])
-        if (result != test[1]):
-            print(f"Error on input {test[0]}. Expected: {test[1]}. Result: {result}")
-        else:
-            right_answers += 1
-    print(f"Got {right_answers} out of {total}")
-
-if __name__ == "__main__":
-    test()
+    utils.test(decompress, tests)
