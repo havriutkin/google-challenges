@@ -32,6 +32,9 @@ Complexity:
     1. O(n) time complexity for next() (since find_next_current might iterate through N elements)
     2. O(n) space complexity, since storing N iterators, and done indexes
 
+! Possible improvements:
+    1. Just remove iterator once it is exhausted
+    2. Use linked list to store iterators, this way I will have O(1) to go to the next iterator
 """
 
 class IF:
