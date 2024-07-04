@@ -12,8 +12,12 @@ Assume an elevation map where the width of each bar is 1.
 Example: 
 Given [1,3,2,4,1,3,1,4,5,2,2,1,4,2,2], return 15 (3 bodies of water with volumes of 1,7,7 yields total volume of 15)
 """
+from utils import utils
 
 def getVolume(heights: list[int]) -> int:
+    if (len(heights) <= 2):
+        return 0
+
     leftMaxHeights = [-1] * len(heights)
     rightMaxHeights = [-1] * len(heights)
     volumes = [0] * len(heights)
@@ -38,5 +42,16 @@ def getVolume(heights: list[int]) -> int:
     return result
         
 if __name__ == '__main__':
-    res = getVolume([1,3,2,4,1,3,1,4,5,2,2,1,4,2,2])
-    print(res)
+    tests = [
+        ([1,3,2,4,1,3,1,4,5,2,2,1,4,2,2], 15),
+        ([5, 1, 5], 4),
+        ([5, 1, 6], 4),
+        ([5, 1, 2, 5], 7),
+        ([], 0),
+        ([4], 0),
+        ([4, 4, 4, 4], 0),
+        ([4, 4, 4, 5], 0),
+        ([5, 4, 4, 5], 2)
+    ]
+
+    utils.test(getVolume, tests)
