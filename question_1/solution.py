@@ -1,4 +1,5 @@
 """
+Link: https://techdevguide.withgoogle.com/resources/former-interview-question-compression-and-decompression/
 Problem:
     In this exercise, you're going to decompress a compressed string.
     Your input is a compressed string of the format number[string] 
